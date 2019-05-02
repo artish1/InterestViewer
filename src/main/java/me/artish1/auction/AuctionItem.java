@@ -1,8 +1,8 @@
 package me.artish1.auction;
 
 public class AuctionItem {
-    String name, itemLink, lotNumber, imageUrl;
-    String currentBid, highestBidder;
+    private String name, itemLink, lotNumber, imageUrl;
+    private String currentBid, highestBidder;
 
     public AuctionItem(String name, String itemLink, String lotNumber, String imageUrl,
                        String currentBid, String highestBidder){
@@ -11,9 +11,13 @@ public class AuctionItem {
         this.lotNumber = lotNumber;
         this.imageUrl = imageUrl;
         this.currentBid = currentBid;
-        this.highestBidder = highestBidder;
+        setHighestBidder(highestBidder);
     }
 
+
+    public void setHighestBidder(String highestBidder) {
+        this.highestBidder = highestBidder.substring(3);
+    }
 
     public String getCurrentBid() {
         return currentBid;
@@ -39,4 +43,6 @@ public class AuctionItem {
         return name;
     }
 
+    @Override
+    public String toString() { return this.getName(); }
 }

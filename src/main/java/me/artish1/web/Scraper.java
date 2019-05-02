@@ -1,4 +1,4 @@
-package me.artish1.WebScraper;
+package me.artish1.web;
 
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;

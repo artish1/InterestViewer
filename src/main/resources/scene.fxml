@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="776.0" prefWidth="1231.0" style="-fx-background-color: #2ECC71;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <VBox prefHeight="776.0" prefWidth="123.0" spacing="15.0" style="-fx-background-color: #3D4956;">
+         <children>
+            <HBox fx:id="btnAuc" prefHeight="38.0" prefWidth="102.0" spacing="5.0" styleClass="imgButton">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@auction.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label text="Auctions" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" top="8.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="btnInterest" prefHeight="38.0" prefWidth="102.0" spacing="5.0" styleClass="hboxButton">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@interest.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label text="Interests" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" top="8.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox fx:id="btnSettings" prefHeight="38.0" prefWidth="102.0" spacing="5.0" styleClass="hboxButton">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@settings.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label text="Settings" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="8.0" top="8.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox fx:id="btnAbout" prefHeight="38.0" prefWidth="102.0" spacing="5.0" styleClass="hboxButton">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@about.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label text="About" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" top="8.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox fx:id="btnExit" prefHeight="38.0" prefWidth="102.0" spacing="5.0" styleClass="hboxButton">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@exit.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label text="Exit" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="8.0" top="8.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="500.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="paneAuc" layoutX="123.0" prefHeight="776.0" prefWidth="1107.0" style="-fx-background-color: #87cefa;">
+         <children>
+            <JFXComboBox fx:id="comboAuc" layoutY="14.0" prefHeight="25.0" prefWidth="1107.0" />
+            <JFXListView fx:id="listView" layoutX="13.0" layoutY="53.0" prefHeight="712.0" prefWidth="1081.0" styleClass="mylistview" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneAbout" layoutX="123.0" prefHeight="776.0" prefWidth="1107.0" style="-fx-background-color: #2ECC71;">
+         <children>
+            <Label layoutX="139.0" layoutY="14.0" text="Mark Artishuk" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="41.0" />
+               </font>
+            </Label>
+            <Label layoutX="225.0" layoutY="88.0" text="Author/Developer" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="244.0" layoutY="115.0" text="Experience:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <ListView fx:id="sampleList" fixedCellSize="50.0" layoutX="471.0" layoutY="288.0" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneSettings" layoutX="123.0" prefHeight="776.0" prefWidth="1107.0" style="-fx-background-color: #03DAC6;">
+         <children>
+            <Label layoutX="470.0" layoutY="14.0" prefHeight="59.0" prefWidth="163.0" text="Settings" textAlignment="CENTER" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="System Bold" size="41.0" />
+               </font>
+            </Label>
+            <Pane layoutX="334.0" layoutY="215.0" prefHeight="346.0" prefWidth="439.0" style="-fx-border-color: #3D4956;">
+               <children>
+                  <JFXTextField fx:id="txtViewInterest" layoutX="27.0" layoutY="247.0" prefHeight="25.0" prefWidth="172.0" />
+                  <JFXButton fx:id="btnAddInterest" buttonType="RAISED" defaultButton="true" graphicTextGap="6.0" layoutX="27.0" layoutY="284.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="172.0" ripplerFill="RED" style="-fx-border-color: #3D4956;" text="Add" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXListView fx:id="listViewSettings" layoutX="226.0" layoutY="12.0" prefHeight="262.0" prefWidth="200.0" styleClass="mylistview" />
+                  <Separator layoutX="211.0" layoutY="12.0" orientation="VERTICAL" prefHeight="322.0" prefWidth="9.0" />
+                  <JFXButton fx:id="btnRemoveInterest" buttonType="RAISED" defaultButton="true" graphicTextGap="6.0" layoutX="225.0" layoutY="284.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="201.0" ripplerFill="RED" style="-fx-border-color: #3D4956;" text="Remove" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <Label layoutX="11.0" text="Edit Interests" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
