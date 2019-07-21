@@ -1,6 +1,5 @@
 InterestViewer project for self-use purposes.
 
-Used to provide suggestions on upcoming auctions based on personal interests.
-Obtains data by webscraping.
+Used to get auction listings on bidrl.com and organize the data based on personal interests using keywords (e.g. 'intel, xbox,' etc)
 
-This is a test message
+Obtains data by webscraping.
