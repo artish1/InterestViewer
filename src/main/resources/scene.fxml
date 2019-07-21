@@ -20,90 +20,10 @@
    <children>
       <VBox prefHeight="776.0" prefWidth="123.0" spacing="15.0" style="-fx-background-color: #3D4956;">
          <children>
-            <HBox fx:id="btnAuc" prefHeight="38.0" prefWidth="102.0" spacing="5.0" styleClass="imgButton">
-               <children>
-                  <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@auction.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="5.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label text="Auctions" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="5.0" top="8.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </VBox.margin>
-            </HBox>
-            <HBox fx:id="btnInterest" prefHeight="38.0" prefWidth="102.0" spacing="5.0" styleClass="hboxButton">
-               <children>
-                  <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@interest.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="5.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label text="Interests" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="5.0" top="8.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox fx:id="btnSettings" prefHeight="38.0" prefWidth="102.0" spacing="5.0" styleClass="hboxButton">
-               <children>
-                  <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@settings.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="5.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label text="Settings" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="8.0" top="8.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox fx:id="btnAbout" prefHeight="38.0" prefWidth="102.0" spacing="5.0" styleClass="hboxButton">
-               <children>
-                  <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@about.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="5.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <Label text="About" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="5.0" top="8.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox fx:id="btnExit" prefHeight="38.0" prefWidth="102.0" spacing="5.0" styleClass="hboxButton">
+             <ListView fx:id="menuList" fixedCellSize="57.0" prefHeight="465.0" prefWidth="132.0"
+                       style="-fx-background-color: #3D4956; -fx-border-style: none;" styleClass="menulistview"/>
+             <HBox fx:id="btnExit" prefHeight="38.0" prefWidth="102.0" spacing="5.0"
+                   style="-fx-padding: 5px 5px 5px 5px;">
                <children>
                   <ImageView fitHeight="32.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -123,18 +43,13 @@
                   </Label>
                </children>
                <VBox.margin>
-                  <Insets top="500.0" />
+                   <Insets bottom="50.0" top="200.0"/>
                </VBox.margin>
             </HBox>
          </children>
       </VBox>
-      <AnchorPane fx:id="paneAuc" layoutX="123.0" prefHeight="776.0" prefWidth="1107.0" style="-fx-background-color: #87cefa;">
-         <children>
-            <JFXComboBox fx:id="comboAuc" layoutY="14.0" prefHeight="25.0" prefWidth="1107.0" />
-            <JFXListView fx:id="listView" layoutX="13.0" layoutY="53.0" prefHeight="712.0" prefWidth="1081.0" styleClass="mylistview" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="paneAbout" layoutX="123.0" prefHeight="776.0" prefWidth="1107.0" style="-fx-background-color: #2ECC71;">
+       <AnchorPane fx:id="paneAbout" layoutX="116.0" prefHeight="776.0" prefWidth="1114.0"
+                   style="-fx-background-color: #2ECC71;" styleClass="menulistview">
          <children>
             <Label layoutX="139.0" layoutY="14.0" text="Mark Artishuk" textFill="WHITE">
                <font>
@@ -151,10 +66,10 @@
                   <Font name="System Bold Italic" size="12.0" />
                </font>
             </Label>
-            <ListView fx:id="sampleList" fixedCellSize="50.0" layoutX="471.0" layoutY="288.0" prefHeight="200.0" prefWidth="200.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="paneSettings" layoutX="123.0" prefHeight="776.0" prefWidth="1107.0" style="-fx-background-color: #03DAC6;">
+       <AnchorPane fx:id="paneSettings" layoutX="116.0" prefHeight="776.0" prefWidth="1114.0"
+                   style="-fx-background-color: #03DAC6;">
          <children>
             <Label layoutX="470.0" layoutY="14.0" prefHeight="59.0" prefWidth="163.0" text="Settings" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
@@ -184,6 +99,21 @@
                </children>
             </Pane>
          </children>
-      </AnchorPane>
+       </AnchorPane>
+       <AnchorPane fx:id="paneAuc" layoutX="116.0" prefHeight="776.0" prefWidth="1114.0"
+                   style="-fx-background-color: #87cefa;">
+           <children>
+               <JFXComboBox fx:id="comboAuc" layoutX="7.0" layoutY="14.0" prefHeight="25.0" prefWidth="1100.0"/>
+               <JFXListView fx:id="listView" layoutX="13.0" layoutY="53.0" prefHeight="712.0" prefWidth="1081.0"
+                            styleClass="mylistview"/>
+           </children>
+       </AnchorPane>
+       <AnchorPane fx:id="paneInterests" layoutX="116.0" prefHeight="776.0" prefWidth="1114.0"
+                   style="-fx-background-color: #FA8987;">
+           <children>
+               <JFXListView fx:id="interestListView" layoutX="17.0" layoutY="32.0" prefHeight="712.0" prefWidth="1081.0"
+                            styleClass="mylistview"/>
+           </children>
+       </AnchorPane>
    </children>
 </AnchorPane>

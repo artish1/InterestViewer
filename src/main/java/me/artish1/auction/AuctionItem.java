@@ -5,9 +5,9 @@ public class AuctionItem {
     private String currentBid, highestBidder;
 
     public AuctionItem(String name, String itemLink, String lotNumber, String imageUrl,
-                       String currentBid, String highestBidder){
+                       String currentBid, String highestBidder) {
         this.name = name;
-        this.itemLink =  "https://www.bidrl.com/" + itemLink;
+        this.itemLink = "https://www.bidrl.com/" + itemLink;
         this.lotNumber = lotNumber;
         this.imageUrl = imageUrl;
         this.currentBid = currentBid;
@@ -44,5 +44,7 @@ public class AuctionItem {
     }
 
     @Override
-    public String toString() { return this.getName(); }
+    public String toString() {
+        return this.getName();
+    }
 }

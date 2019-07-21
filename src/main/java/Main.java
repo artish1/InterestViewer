@@ -10,20 +10,25 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         launch(args); //This launches the JavaFX GUI.
     }
-    private double xOffset = 0;
-    private double yOffset = 0;
+
+    private double xOffset = 0; //Used to drag screen
+    private double yOffset = 0; //Used to drag screen
+
+    public static Stage primaryStage;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
+        Main.primaryStage = primaryStage;
         DataModel.loadPriorityWords();
-
 
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("scene.fxml"));
         Parent root = loader.load();
 
+
+        //Sets xOffset and yOffset so it can be used to 'drag' the application across the screen.
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -32,6 +37,8 @@ public class Main extends Application {
             }
         });
 
+
+        //Moves the application across the screen in a 'drag' form.
         root.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -41,28 +48,19 @@ public class Main extends Application {
         });
 
 
-
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);
         Controller controller = loader.getController();
 
-        //primaryStage.initStyle(StageStyle.UNDECORATED);
+
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
 
+
         Thread t1 = new Thread(controller);
         t1.start();
-
-
-        //TODO Create multi-thread task for DL'ing pages.
-
-        //TODO Dynamic view listings as thread tasks finish.
-
-        //TODO Create View and display.
-
-
 
 
     }

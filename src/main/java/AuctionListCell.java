@@ -9,11 +9,6 @@ import me.artish1.web.Browsing;
 
 
 public class AuctionListCell<T> extends ListCell<AuctionItem> {
-    private EventHandler<MouseEvent> clickHandler;
-
-    AuctionListCell() {
-
-    }
 
     @Override
     protected void updateItem(AuctionItem item, boolean empty) {
@@ -24,34 +19,32 @@ public class AuctionListCell<T> extends ListCell<AuctionItem> {
             return;
         }
 
-        clickHandler = new EventHandler<MouseEvent>() {
+        setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 Browsing.openWebpage(item.getItemLink());
             }
-        };
+        });
 
-
+        //set text of the cell
         setText(item.getName());
 
+        //Tooltip
+        //Create an indefinite loading spinner that will replace the image of the item as it loads.
         JFXSpinner loadingSpinner = new JFXSpinner();
         loadingSpinner.setRadius(-1);
         loadingSpinner.setProgress(-1);
 
+        Tooltip tooltip = new Tooltip();
+        tooltip.setGraphic(loadingSpinner);
+        tooltip.setHideOnEscape(true);
 
+        //Download image of item and set it to the tooltip once finished
+        DownloadImageListCell thread = new DownloadImageListCell(tooltip, item);
+        thread.start();
 
-
-
-        setOnMouseClicked(clickHandler);
-
-
-        if(getTooltip() == null){
-            Tooltip tooltip = new Tooltip();
-            tooltip.setGraphic(loadingSpinner);
-            Tooltip.install(this,tooltip);
-            DownloadImageListCell thread = new DownloadImageListCell(tooltip,item);
-            thread.start();
-        }
+        Tooltip.install(this, tooltip);
+        setTooltip(tooltip);
 
 
     }

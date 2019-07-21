@@ -12,35 +12,11 @@ public class DataModel {
     private List<AuctionItem> interestedListings = new ArrayList<>();
     private static List<String> priorityWords;
 
-    public static void main(String[] args)
-    {
-
-        try {
-            URL url = new URL("http://www.google.com");
-
-            Browsing.openWebpage(url);
-        }catch(MalformedURLException e) {
-            e.printStackTrace();
-        }
-
-
-
-    }
-
-
-
-    private Controller controller;
-
-    public DataModel(Controller controller){
-        this.controller = controller;
-    }
-
-
     public static void loadPriorityWords(){
         String[] words = {"drum", "drums", "cpu", "processor", "drive", "graphics", "gtx", "geforce", "msi", "motherboard", "xbox", "ps4", "usb", "computer", "desktop"};
 
         priorityWords= new LinkedList<String>(Arrays.asList(words));
-        //TODO Add editable priority words for client use. (Instead of Hard coding
+        //TODO Add editable priority words for client use. (Instead of Hard coding)
     }
 
     public static List<String> getPriorityWords() {
@@ -52,9 +28,7 @@ public class DataModel {
     }
 
     public static void removePriorityWord(String interest){
-        if(priorityWords.contains(interest)){
-            priorityWords.remove(interest);
-        }
+        priorityWords.remove(interest);
     }
 
 
