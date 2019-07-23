@@ -12,8 +12,17 @@ public class DataModel {
     private List<AuctionItem> interestedListings = new ArrayList<>();
     private static List<String> priorityWords;
 
+    private static Controller controller;
+
+    public DataModel(Controller contr) {
+        controller = contr;
+    }
+
     public static void loadPriorityWords(){
-        String[] words = {"drum", "drums", "cpu", "processor", "drive", "graphics", "gtx", "geforce", "msi", "motherboard", "xbox", "ps4", "usb", "computer", "desktop"};
+        String[] words = {"drum", "drums", "cpu", "processor", "drive",
+                "graphics", "gtx", "geforce", "msi", "motherboard",
+                "xbox", "ps4", "switch", "intel", "samsung", "galaxy",
+                "computer", "desktop"};
 
         priorityWords= new LinkedList<String>(Arrays.asList(words));
         //TODO Add editable priority words for client use. (Instead of Hard coding)
@@ -21,14 +30,17 @@ public class DataModel {
 
     public static List<String> getPriorityWords() {
         return priorityWords;
+
     }
 
     public static void addPriorityWord(String interest) {
         priorityWords.add(interest);
+        controller.refreshInterestListView();
     }
 
     public static void removePriorityWord(String interest){
         priorityWords.remove(interest);
+        controller.refreshInterestListView();
     }
 
 

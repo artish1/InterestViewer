@@ -75,7 +75,7 @@ public class Controller implements Runnable, Initializable {
 
 
     public Controller() {
-        data = new DataModel();
+        data = new DataModel(this);
     }
 
     private Node[] panes;
@@ -206,8 +206,6 @@ public class Controller implements Runnable, Initializable {
     public void run() {
         init();
         loadListings();
-
-
         for (Auction auc : data.getListings()) {
             Thread aucThread = new Thread(auc);
             aucThread.start();
@@ -221,14 +219,23 @@ public class Controller implements Runnable, Initializable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //printAuctions();
-        findInterests();
         Platform.runLater(() -> loadListingsUI());
         Platform.runLater(() -> refreshListView(comboAuc.getSelectionModel().getSelectedItem()));
+
+        refreshInterestListView();
+    }
+
+    /**
+     * Refreshes the ListView in the Interests Pane with the current Interests.
+     */
+    public void refreshInterestListView() {
+        data.getInterests().clear();
+        findInterests();
 
         ObservableList<AuctionItem> list = FXCollections.observableList(data.getInterests());
         interestListView.setItems(list);
     }
+
 
     /**
      * Loads all the Auctions into the JavaFX ComboBox comboAuc Node
@@ -241,6 +248,7 @@ public class Controller implements Runnable, Initializable {
         }
         comboAuc.getItems().addAll(aucss);
         comboAuc.getSelectionModel().selectFirst();
+
     }
 
 
@@ -262,7 +270,9 @@ public class Controller implements Runnable, Initializable {
      *
      */
     private void loadListings() {
-
+        /**
+         * Items contains each individual auction (etc, High End Items, Over-size Furniture)
+         */
         List<HtmlElement> items = Scraper.getPage("https://www.bidrl.com/newhome/affiliates/afid/2")
                 .getByXPath("//div[@class='aucbox']");
         if (items.isEmpty()) {
@@ -278,6 +288,7 @@ public class Controller implements Runnable, Initializable {
                 if (s.getAttribute("class").equalsIgnoreCase("auction_link")) {
                     auc.setAuctionLink(s.getAttribute("href"));
                 }
+
                 if (s.getAttribute("itemprop").equalsIgnoreCase("name")) {
                     auc.setAuctionTitle(s.asText());
                 }
